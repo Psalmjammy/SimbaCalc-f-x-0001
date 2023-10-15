@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal-Portfolio.calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" 
+         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" 
+         crossorigin="anonymous">
+ </head>
+ <body>
+  <!--this hold calculator-->
+  <div class="calculator">
+   <!--brand and f(x) of calculatior description -->
+   <header class="brandName">
+    <h1>&#8881;SIMBA</h1>
+    <p><span>&#402;&#8317;<sup>&#8339;</sup>&#8318;</span>&#61;0001 SJ</p>
+   </header>
+   <!--display screen start-->
+   <form id="screenDisplay">
+    <!--output field-->
+				<div class="asidesIcon">
+					<p class="rooter">&#171;</p>
+					<p class="bIcon">&#187;</p>
+				</div>
+    <div id="output" class="outputH">
+     <div class="dragQ" id="WelcomeMessage">
+      <p class="welcomeTextMessage">Welcome To Simba&#39;s Calculator&#33;</p>
+     </div>
+     <div class="dragQ" id="farewellMessage">
+      <p class="farewellMessageTextMessage">Thanks For Using Me&#33;</p>
+     </div>
+     <input class="inResult dragQ inResultAnieLtr inResultAnieRtl" placeholder="0" maxlength="30">
+    </div>
+    <div class="asidesIcon">
+					<p class="dIcon">d</p>
+     <p class="rIcon">r</p>
+     <p class="iIcon">i</p>
+    </div>
+    <div class="asidesIcon">
+     <p class="degIcon">&deg;</p>
+					<p class="thetaIcon">&theta;</p>
+    </div>
+    <!--input field for expression-->
+				<div class="anscont">
+					<output class="answerField dragQ answerFieldPopUp answerFieldPopDown" id="answerField"></output>
+				</div>
+    <div class="asidesIcon lrr">
+     <p class="fxIcon">Fx</p>
+					<div class="exValue">
+						<p class="eIcon">e</p>
+						<input id="exponetial" placeholder="00">
+					</div>
+    </div>
+   </form>
+   <!--screen display ends-->
+
+   <!--buttons for navigation-->
+   <section class="navButtons">
+    <button id="onButton" class="onButton">ON</button>
+    <button id="approximatingButton">&#8793;</button>
+    <div class="menuButtons">
+     <button id="upButton" class="top" onclick="navigateUpHistory()">&#8743;</button>
+     <button id="downButton" class="bottom" onclick="moveCursorLeft()">&#60;</button>
+     <button id="rightButton" class="right" onclick="moveCursorRight()">&#62;</button>
+     <button id="leftButton" class="left" onclick="navigateDownHistory()">&#8744;</button>
+    </div>
+    <button id="homeButton" onclick="buttonMode()" disabled>&#8803;</button>
+    <!--dark mode button-->
+    <button class="container" aria-label="Toggle color mode" id="dark-mode-toggle">
+     <div class="sun visible"></div>
+     <div class="moon">
+      <div class="star"></div>
+      <div class="star small"></div>
+     </div>
+    </button>
+   </section>
+   <!--navigation button end-->
+
+   <!--oparation advanced buttons-->
+   <section class="functionButtons">
+    <button class="fas" onclick="appendToDisplay('!')" id="!Button">!</button>
+    <button class="fas" onclick="appendToDisplay('π')" id="piButton">π</button>
+    <button class="fas" onclick="appendToDisplay('³√(')" id="cubeRootButton">³√</button>
+    <button class="fas" onclick="appendToDisplay('√(')" id="squareRootButton">√</button>
+				<button class="fas" onclick="appendToDisplay('e(')" id="exponetButton">e<sup>&#8718;</sup></button>
+    <button class="fas" onclick="appendToDisplay('^(')" id="squareButton">&#8718;<sup>&#8718;</sup></button>
+    <button class="fas" onclick="appendToDisplay('³')" id="cubeButton">&#8718;&#179;</button>
+    <button class="fas" onclick="appendToDisplay('²')" id="squareButton">&#8718;&#178;</button>
+    <button class="fas" onclick="appendToDisplay('log(')" id="logButton">log</button>
+    <button class="fas" onclick="appendToDisplay('ln(')" id="lnButton">ln</button>
+    <button class="fas" onclick="appendToDisplay('sin(')" id="sinButton">sin</button>
+    <button class="fas" onclick="appendToDisplay('cos(')" id="cosButton">cos</button>
+    <button class="fas" onclick="appendToDisplay('tan(')" id="tanButton">tan</button>
+    <button class="fas" onclick="appendToDisplay('(')" id="leftBracketButton">&#40;</button>
+    <button class="fas" onclick="appendToDisplay(')')" id="rightBracketButton">&#41;</button>
+   </section>
+   <!--numerical button and simple oparation buttons-->
+   <section class="numberButtons">
+    <button class="fab" onclick="appendToDisplay('7')">7</button>
+    <button class="fab" onclick="appendToDisplay('8')">8</button>
+    <button class="fab" onclick="appendToDisplay('9')">9</button>
+    <button class="fab" onclick="backspace()" id="backspaceButton">&#9003;</button>
+    <button class="fab" onclick="clearDisplay()" id="clearDisplayACButton">AC</button>
+    <button class="fab" onclick="appendToDisplay('4')">4</button>
+    <button class="fab" onclick="appendToDisplay('5')">5</button>
+    <button class="fab" onclick="appendToDisplay('6')">6</button>
+    <button class="fab" id="plusButton" onclick="appendToDisplay('+')">&#43;</button>
+    <button class="fab" id="minusButton" onclick="appendToDisplay('-')">&#8722;</button>
+    <button class="fab" onclick="appendToDisplay('1')">1</button>
+    <button class="fab" onclick="appendToDisplay('2')">2</button>
+    <button class="fab" onclick="appendToDisplay('3')">3</button>
+    <button class="fab" id="timesButton" onclick="appendToDisplay('×')">&#215;</button>
+    <button class="fab" id="divideButton" onclick="appendToDisplay('÷')">&#247;</button>
+    <button class="fab" onclick="appendToDisplay('.')">&#8901;</button>
+    <button class="fab" onclick="appendToDisplay('0')">0</button>
+    <button class="fab" onclick="appendToDisplay('%')">&#37;</button>
+    <button class="fab" id="ansButton" onclick="appendToDisplay('Ans')">Ans</button>
+    <button class="fab" onclick="calculate()" id="equalButton">&#61;</button>
+   </section>
+   </div>
+  </div>
+ </body>
+ <!--js-->
+ <script src="calc.js"></script>
+ <script src="unpkg.com_mathjs@11.11.1_lib_browser_math.js"></script>
+</html>
